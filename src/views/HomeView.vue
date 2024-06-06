@@ -4,10 +4,11 @@
 
     <div class='df' style='gap: 30px'>
       <button @click="prevPage" :disabled="count === 1">
-        prev
+        назад
       </button>
-      <button @click="nextPage">
-        next
+      <p style='color: #fff'>{{count}}</p>
+      <button @click="nextPage" :disabled='!info.info.next'>
+        сдед
       </button>
     </div>
 
@@ -21,7 +22,7 @@ import axios from 'axios';
 import Filter from '../components/Filter.vue';
 import Card from '../components/Card.vue';
 
-const info = ref({ results: [] });
+const info = ref({ results: [], info: {} });
 const count = ref(1);
 
 const nextPage = () => {
